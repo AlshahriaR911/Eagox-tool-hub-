@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tools Hub — Discover the Best AI Tools</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-bar"></div>
+      <span class="loader-text">LOADING AI TOOLS HUB</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav id="navbar">
+    <div class="nav-logo-section">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">EAGOX<span class="logo-accent">Hub</span></span>
+      </a>
+      <span class="logo-subtitle">by EAGOX Studio</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="setting.html" class="nav-link">Settings</a>
+    </div>
+    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+      <span class="theme-icon">◐</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="setting.html">Settings</a>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="badge-dot"></span>
+          100+ AI Tools Curated
+        </div>
+        <h1 class="hero-title reveal">
+          Discover the <br/>
+          <span class="gradient-text">Best AI Tools</span><br/>
+          in One Place
+        </h1>
+        <p class="hero-sub reveal">Explore handpicked AI tools across every category — from chatbots to code generators, image creators to productivity boosters.</p>
+        <div class="search-wrap reveal">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="search-input" class="search-input" placeholder="Search AI tools..." autocomplete="off" />
+            <button class="search-clear" id="search-clear" aria-label="Clear">✕</button>
+            
+            <!-- Premium Search Dropdown -->
+            <div id="search-dropdown" class="search-dropdown-container hidden">
+              <!-- Main Results -->
+              <div id="search-results-section" class="search-results-section">
+                <div class="search-dropdown-header">Matched Tools</div>
+                <ul id="search-dropdown-list" class="search-dropdown-list"></ul>
+              </div>
+              
+              <!-- Recent Searches -->
+              <div id="search-recent-section" class="search-recent-section hidden">
+                <div class="search-dropdown-header">Recent Searches</div>
+                <ul id="search-recent-list" class="search-recent-list"></ul>
+              </div>
+              
+              <!-- Empty State -->
+              <div id="search-empty-state" class="search-empty-state hidden">
+                <span class="empty-icon">🔍</span>
+                <p>No tools found. Try a different search.</p>
+              </div>
+            </div>
+          </div>
+          <div id="search-results-count" class="search-count"></div>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Tools</span></div>
+          <div class="stat-sep"></div>
+          <div class="stat"><span class="stat-num">10</span><span class="stat-label">Categories</span></div>
+          <div class="stat-sep"></div>
+          <div class="stat"><span class="stat-num">Free</span><span class="stat-label">Forever</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="featured section-gap" id="featured">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">⭐ Featured</span>
+          <h2 class="section-title">Top Picks</h2>
+          <p class="section-desc">The most powerful tools dominating the AI landscape right now.</p>
+        </div>
+        <div class="featured-grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories section-gap" id="categories">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">🗂 Browse</span>
+          <h2 class="section-title">All Categories</h2>
+          <p class="section-desc">Filter by what you need. Every tool, every category.</p>
+        </div>
+        <div class="cat-tabs reveal" id="cat-tabs">
+          <button class="cat-tab active" data-cat="all">All Tools</button>
+          <button class="cat-tab" data-cat="chatbots">💬 Chatbots</button>
+          <button class="cat-tab" data-cat="image">🖼 Image</button>
+          <button class="cat-tab" data-cat="video">🎬 Video</button>
+          <button class="cat-tab" data-cat="coding">💻 Coding</button>
+          <button class="cat-tab" data-cat="writing">✍️ Writing</button>
+          <button class="cat-tab" data-cat="audio">🎧 Audio</button>
+          <button class="cat-tab" data-cat="productivity">🚀 Productivity</button>
+          <button class="cat-tab" data-cat="business">📊 Business</button>
+          <button class="cat-tab" data-cat="specialized">🛠 Specialized</button>
+        </div>
+        <div class="tools-grid" id="tools-grid"></div>
+        <div class="no-results hidden" id="no-results">
+          <span class="no-results-icon">🔍</span>
+          <p>No tools found. Try a different search or category.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">AI<span>Hub</span></a>
+          <p>Your one-stop directory for the best AI tools on the internet.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="setting.html">Settings</a>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="#categories">Chatbots</a>
+          <a href="#categories">Image Generation</a>
+          <a href="#categories">Coding Tools</a>
+          <a href="#categories">Productivity</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 EAGOX Studio — Curating the Future of AI</p>
+        <p class="footer-credits">Discover premium AI tools, stay ahead of trends</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

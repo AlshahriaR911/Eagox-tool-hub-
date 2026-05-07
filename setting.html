@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — AI Tools Hub</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-bar"></div>
+      <span class="loader-text">LOADING AI TOOLS HUB</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">AI<span>Hub</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="setting.html" class="nav-link active">Settings</a>
+    </div>
+    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+      <span class="theme-icon">◐</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="setting.html">Settings</a>
+  </div>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="reveal">Settings</h1>
+        <p class="reveal">Customize your AI Tools Hub experience</p>
+      </div>
+    </section>
+
+    <!-- Settings Content -->
+    <section class="section-gap">
+      <div class="container">
+        <div class="settings-content">
+          <div class="settings-section reveal">
+            <h2>Appearance</h2>
+            <div class="setting-row">
+              <div class="setting-info">
+                <h3>Theme</h3>
+                <p>Choose your preferred color scheme</p>
+              </div>
+              <div class="setting-control">
+                <button id="theme-toggle-btn" class="toggle-switch">
+                  <span class="toggle-slider"></span>
+                </button>
+                <span id="theme-status">Dark Mode</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-section reveal">
+            <h2>Preferences</h2>
+            <div class="setting-row">
+              <div class="setting-info">
+                <h3>Search Results</h3>
+                <p>Number of tools to show per page</p>
+              </div>
+              <div class="setting-control">
+                <select id="results-per-page" class="setting-select">
+                  <option value="12">12 tools</option>
+                  <option value="24" selected>24 tools</option>
+                  <option value="48">48 tools</option>
+                  <option value="all">Show all</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-section reveal">
+            <h2>About</h2>
+            <div class="info-card">
+              <h3>AI Tools Hub v1.0</h3>
+              <p>A curated directory of the best AI tools available on the internet.</p>
+              <p><strong>Developer:</strong> Al Shahriar Sowan</p>
+              <p><strong>Email:</strong> <a href="mailto:alshahriarsayon425@gmail.com">alshahriarsayon425@gmail.com</a></p>
+              <p><strong>Last Updated:</strong> May 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">AI<span>Hub</span></a>
+          <p>Your one-stop directory for the best AI tools on the internet.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="setting.html">Settings</a>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="index.html#categories">Chatbots</a>
+          <a href="index.html#categories">Image Generation</a>
+          <a href="index.html#categories">Coding Tools</a>
+          <a href="index.html#categories">Productivity</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 AI Tools Hub. Built with ♥ by Al Shahriar Sowan.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // Settings page specific JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      const themeStatus = document.getElementById('theme-status');
+      const resultsPerPage = document.getElementById('results-per-page');
+
+      // Theme toggle functionality
+      function updateThemeUI() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          themeStatus.textContent = 'Dark Mode';
+          themeToggleBtn.classList.add('on');
+        } else {
+          themeStatus.textContent = 'Light Mode';
+          themeToggleBtn.classList.remove('on');
+        }
+      }
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function() {
+          const html = document.documentElement;
+          const currentTheme = html.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          html.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateThemeUI();
+        });
+      }
+
+      // Load saved settings
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeUI();
+
+      // Results per page setting
+      if (resultsPerPage) {
+        const savedResults = localStorage.getItem('resultsPerPage') || '24';
+        resultsPerPage.value = savedResults;
+
+        resultsPerPage.addEventListener('change', function() {
+          localStorage.setItem('resultsPerPage', this.value);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

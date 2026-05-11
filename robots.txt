@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eagox-tool-hub.vercel.app/sitemap.xml
